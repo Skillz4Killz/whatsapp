@@ -16,9 +16,11 @@ import { SearchInput } from "./styled/SearchInput";
 import { SidebarButton } from "./styled/SidebarButton";
 import { auth, db } from "../utils/firebase";
 import Chat from "./Chat";
+import { useRouter } from "next/dist/client/router";
 
 export default function Sidebar() {
   const [user] = useAuthState(auth);
+  const router = useRouter();
   const userChatRef = db
     .collection("chats")
     .where("users", "array-contains", user.email);
@@ -30,7 +32,7 @@ export default function Sidebar() {
     );
   };
 
-  const createChat = () => {
+  const createChat = async () => {
     const input = prompt(
       "Please enter an email address for the user you wish to chat with"
     );
@@ -38,9 +40,14 @@ export default function Sidebar() {
 
     if (!EmailValidator.validate(input) || chatAlreadyExists(input)) return;
 
-    db.collection("chats").add({
+    const doc = await db.collection("chats").add({
       users: [user.email, input],
     });
+
+    console.log(router);
+    router.push(
+      `${router.pathname.startsWith("/chat") ? "" : "/chat/"}${doc.id}`
+    );
   };
 
   return (
