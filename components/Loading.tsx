@@ -1,4 +1,5 @@
 import { Circle } from "better-react-spinkit";
+import Image from "next/image";
 
 export default function Loading() {
   return (
@@ -11,13 +12,8 @@ export default function Loading() {
       }}
     >
       <div>
-        <img
-          src="https://i.imgur.com/Kwhqqqn.png"
-          height={150}
-          width={200}
-          style={{ marginBottom: 10 }}
-        />
-        <Circle color="#3CBC28" />
+        <Image src="https://i.imgur.com/Kwhqqqn.png" height={150} width={200} />
+        <Circle color="#3CBC28" style={{ marginTop: 10 }} />
       </div>
     </div>
   );
