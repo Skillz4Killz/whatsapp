@@ -13,7 +13,7 @@ export const MessageElement = styled.p`
 
 export const Sender = styled(MessageElement)`
   margin-left: auto;
-  background-color: "#DCF8C6";
+  background-color: #dcf8c6;
 `;
 
 export const Reciever = styled(MessageElement)`
