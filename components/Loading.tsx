@@ -12,7 +12,7 @@ export default function Loading() {
       }}
     >
       <div>
-        <Image src="https://i.imgur.com/Kwhqqqn.png" height={150} width={200} />
+        <Image src="/whatsapp.png" height={150} width={200} />
         <Circle color="#3CBC28" style={{ marginTop: 10 }} />
       </div>
     </div>
