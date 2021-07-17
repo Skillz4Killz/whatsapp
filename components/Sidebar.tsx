@@ -26,7 +26,7 @@ export default function Sidebar() {
 
   const chatAlreadyExists = (email: string) => {
     return !!chatsSnapshot?.docs.some((chat) =>
-      chat.data().users.find((u) => u === email.length > 0)
+      chat.data().users.find((u) => u === email)
     );
   };
 
