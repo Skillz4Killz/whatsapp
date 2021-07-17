@@ -19,11 +19,14 @@ export default function Chat(props: Props) {
   const [recipientSnapshot] = useCollection(
     db.collection("users").where("email", "==", recipientEmail)
   );
-  const recipient = recipientSnapshot.docs[0]?.data();
+  const recipient = recipientSnapshot?.docs[0]?.data();
 
   return (
-    <ChatContainer>
-      <Link href={`/chat/${props.id}`}>
+    <Link
+      href={`/chat/${props.id}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+      <ChatContainer>
         {recipient ? (
           <ChatUserAvatar src={recipient.photoURL} />
         ) : (
@@ -31,7 +34,7 @@ export default function Chat(props: Props) {
         )}
 
         <p>{recipientEmail}</p>
-      </Link>
-    </ChatContainer>
+      </ChatContainer>
+    </Link>
   );
 }

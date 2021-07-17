@@ -66,7 +66,7 @@ export default function Sidebar() {
       <SidebarButton onClick={createChat}>Start a new chat</SidebarButton>
 
       {chatsSnapshot?.docs.map((chat) => {
-        <Chat key={chat.id} id={chat.id} users={chat.data().users} />;
+        return <Chat key={chat.id} id={chat.id} users={chat.data().users} />;
       })}
     </Container>
   );
