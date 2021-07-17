@@ -114,7 +114,7 @@ export default function ChatScreen(
           {recipientSnapshot ? (
             <p>
               Last Active:{" "}
-              {recipient.lastSeen?.toDate() ? (
+              {recipient?.lastSeen?.toDate() ? (
                 <TimeAgo datetime={recipient.lastSeen.toDate()} />
               ) : (
                 "Unavailable"
