@@ -36,7 +36,7 @@ export default function Sidebar() {
     );
     if (!input || input === user.email) return;
 
-    if (!EmailValidator.validate(input) && chatAlreadyExists(input)) return;
+    if (!EmailValidator.validate(input) || chatAlreadyExists(input)) return;
 
     db.collection("chats").add({
       users: [user.email, input],
