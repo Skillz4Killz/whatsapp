@@ -98,6 +98,7 @@ export default function ChatScreen(
     });
 
     setInput("");
+    if (messagesSnapshot?.docs?.length < 5) return;
     scrollToBottom();
   };
 
